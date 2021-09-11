@@ -1,0 +1,16 @@
+[{
+  "id": "1",
+  "DeliveryOption": "Home delivery",
+  "InnerButtonText": "Add to backet",
+  "price": "200 SEK"
+  
+},
+{
+  "id": "2",
+  "DeliveryOption": "Post office delivery",
+  "InnerButtonText": "Add to backet",
+  "price": "34 SEK"
+
+}
+
+]

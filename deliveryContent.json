@@ -11,6 +11,55 @@
   "InnerButtonText": "Add to backet",
   "price": "34 SEK"
 
+},
+{
+  "id": "3",
+  "DeliveryOption": "Post office delivery",
+  "InnerButtonText": "Add to backet",
+  "price": "34 SEK"
+
+},
+{
+  "id": "4",
+  "DeliveryOption": "Post office delivery",
+  "InnerButtonText": "Add to backet",
+  "price": "34 SEK"
+
+},
+{
+  "id": "5",
+  "DeliveryOption": "Post office delivery",
+  "InnerButtonText": "Add to backet",
+  "price": "34 SEK"
+
+},
+{
+  "id": "6",
+  "DeliveryOption": "Post office delivery",
+  "InnerButtonText": "Add to backet",
+  "price": "34 SEK"
+
+},
+{
+  "id": "",
+  "DeliveryOption": "Post office delivery",
+  "InnerButtonText": "Add to backet",
+  "price": "34 SEK"
+
+},
+{
+  "id": "8",
+  "DeliveryOption": "Post office delivery",
+  "InnerButtonText": "Add to backet",
+  "price": "34 SEK"
+
+},
+{
+  "id": "9",
+  "DeliveryOption": "Post office delivery",
+  "InnerButtonText": "Add to backet",
+  "price": "34 SEK"
+
 }
 
 ]

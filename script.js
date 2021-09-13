@@ -16,9 +16,11 @@ fetch('deliveryContent.json')
 
 //Create divs with content
 
+let backetArray = [];
+
 function appendData(data) {
   let mainContainer = document.getElementsByClassName("grid-container")[0];
-  console.log(mainContainer);
+
   data.forEach(element => {
     //Add diw which is Parent container to each box
     let backdoorDiv = document.createElement("div");
@@ -27,33 +29,75 @@ function appendData(data) {
     //Add div which is front door
     let gridItemDiv = document.createElement("div");
     gridItemDiv.classList.add('grid-item');
-    gridItemDiv.innerHTML = element.DeliveryOption;
+    gridItemDiv.innerHTML = element.DeliveryOption + "</br>" + element.price;
+
 
 
     //Add div which is hidden box
     let hiddenText__and_positionDiv = document.createElement("div");
     hiddenText__and_positionDiv.classList.add('hiddenText__and_position');
 
-    //Add to the HTML <a> tag to the hidden box with link
+    //Add to the HTML <a> tag (button)to the hidden box with link
     let a__HiddenText__and_positionDiv = document.createElement("a");
     a__HiddenText__and_positionDiv.href = "#";
     hiddenText__and_positionDiv.appendChild(a__HiddenText__and_positionDiv);
+
+
+    //Create p tag and append text to it
+    let pTag = document.createElement("p");
+    pTag.classList.add('btn_p');
+    a__HiddenText__and_positionDiv.appendChild(pTag);
+    pTag.innerHTML = element.InnerButtonText;
+    //Add items to the backet
+    pTag.addEventListener("click", function addToBacket() {
+      backetArray.push({
+        "DeliveryOption": element.DeliveryOption,
+        "price": element.price
+      });
+      console.log(backetArray);
+
+      // let nameAndPrice = document.createElement("span");
+      // nameAndPrice.classList.add('item_price');
+      // nameAndPrice.innerHTML= backetArray;
+      // let containerNP = document.getElementsByClassName("container_item_price")[0]; // Container on the second page with names pf items and their prices
+      // containerNP.appendChild(nameAndPrice);
+
+
+
+
+    });
 
 
     //Add grid-item div and hiddenText div to the backdoor which is their container
     backdoorDiv.appendChild(gridItemDiv);
     backdoorDiv.appendChild(hiddenText__and_positionDiv);
 
+    //Make door rotation by changing class on click
     backdoorDiv.addEventListener("click", function toggleDoor() {
       backdoorDiv.children[0].classList.toggle("doorOpen");
     });
 
+
     //Add all divs to main container
     mainContainer.appendChild(backdoorDiv);
+
 
   });
 }
 
+
+//Making item button working
+document.getElementsByClassName('btn-backet')[0].onclick = function() {
+    sessionStorage.setItem('TheArray', JSON.stringify(backetArray));
+   
+  window.location.href='/page2.html';
+};
+
+
+
+
+
+// NAVIGATION ANIMATION HAMBURGER
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 

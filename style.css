@@ -88,15 +88,6 @@ a {
 
 /* THE CABINET-TABLE */
 
-/* #cabinet-table {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: fit-content;
-  z-index: 1;
-} */
-
 .grid-container {
   display: grid;
   /* grid-template-columns: auto auto auto; */
@@ -126,7 +117,7 @@ a {
 }
 
 .backDoor a  {
-  color:lightcoral;
+  color:rgb(15, 8, 8);
   text-align: center;
 }
 /* INSIDE THE BOX, HIDDEN TEXT */
@@ -136,14 +127,21 @@ a {
   /* text */
   position: absolute;
   z-index: 1;
-  left: 0;
-  top: 0;
+  left: 3%;
+  right: 3%;
+  top: 35%;
 }
 
+/* btn inside the box */
+.btn_p {
+  padding: 0.5em;
+  background-color:#04AA6D;
+  
+}
 
 /* MAKING DOOR OPENING */
 .backDoor {
-  background-color: gray;
+  background-color: rgba(133, 66, 66, 0.705);
   border: 1px solid rgba(0, 0, 0, 0.8);
   font-size: 30px;
   text-align: center;
@@ -177,7 +175,6 @@ a {
 }
 
 
-/* ZOOM OF BACKWALL */
 
 /* CHECKOUT FORM */
 .checkout {
@@ -229,7 +226,7 @@ a {
   padding: 0 16px;
 }
 
-.container {
+.container_item_price {
   background-color: #eecccc;
   padding: 5px 20px 15px 20px;
   border: 1px solid lightgrey;

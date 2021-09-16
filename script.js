@@ -23,8 +23,8 @@ function appendData(data) {
 
   data.forEach(element => {
     //Add diw which is Parent container to each box
-    let backdoorDiv = document.createElement("div");
-    backdoorDiv.classList.add('backDoor');
+    let boxDiv = document.createElement("div");
+    boxDiv.classList.add('box');
 
     //Add div which is front door
     let gridItemDiv = document.createElement("div");
@@ -48,19 +48,22 @@ function appendData(data) {
     pTag.classList.add('btn_p');
     a__HiddenText__and_positionDiv.appendChild(pTag);
     pTag.innerHTML = element.InnerButtonText;
+
+    
     //Add items to the backet
     pTag.addEventListener("click", function addToBacket() {
       backetArray.push({
         "DeliveryOption": element.DeliveryOption,
-        "price": element.price
+        "price": element.price,
+        "currency": element.currency
       });
       console.log(backetArray);
 
       // let nameAndPrice = document.createElement("span");
       // nameAndPrice.classList.add('item_price');
       // nameAndPrice.innerHTML= backetArray;
-      // let containerNP = document.getElementsByClassName("container_item_price")[0]; // Container on the second page with names pf items and their prices
-      // containerNP.appendChild(nameAndPrice);
+      // let span__name_price = document.getElementsByClassName("container_item_price")[0]; // Container on the second page with names pf items and their prices
+      // span__name_price.appendChild(nameAndPrice);
 
 
 
@@ -68,18 +71,18 @@ function appendData(data) {
     });
 
 
-    //Add grid-item div and hiddenText div to the backdoor which is their container
-    backdoorDiv.appendChild(gridItemDiv);
-    backdoorDiv.appendChild(hiddenText__and_positionDiv);
+    //Add grid-item div and hiddenText div to the box which is their container
+    boxDiv.appendChild(gridItemDiv);
+    boxDiv.appendChild(hiddenText__and_positionDiv);
 
     //Make door rotation by changing class on click
-    backdoorDiv.addEventListener("click", function toggleDoor() {
-      backdoorDiv.children[0].classList.toggle("doorOpen");
+    boxDiv.addEventListener("click", function toggleDoor() {
+      boxDiv.children[0].classList.toggle("doorOpen");
     });
 
 
     //Add all divs to main container
-    mainContainer.appendChild(backdoorDiv);
+    mainContainer.appendChild(boxDiv);
 
 
   });

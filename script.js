@@ -1,6 +1,7 @@
 //Work with Json
 
-//Here we are fetching our deliveryOption.json file and execute the json() function which also returns a promise and runs then* function. Finaly we get actual Json data as a parameter.
+//Here we are fetching deliveryContent.json file and execute the json() function which also returns a promise and runs then* function. 
+//Finaly we get actual Json data as a parameter.
 fetch('deliveryContent.json')
   .then(function (response) {
     return response.json();
@@ -14,9 +15,28 @@ fetch('deliveryContent.json')
   });
 
 
-//Create divs with content
+//Create array of objects 
 
 let backetArray = [];
+
+// //Link to the session storage
+// let sessionString = sessionStorage.getItem('TheArray');
+// if (sessionString) {
+//   backetArray = JSON.parse(sessionString);
+
+//   // Add sum of clicked items to the cart btn
+//   let btnBacketPosition = document.getElementsByClassName("btnCartPrice")[0];
+
+//   let sumOnCart = 0;
+//   for (let i = 0; i < backetArray.length; i++) {
+//     sumOnCart += backetArray[i].price;
+//   }
+
+
+//   btnBacketPosition.innerHTML = sumOnCart;
+// }
+
+
 
 function appendData(data) {
   let mainContainer = document.getElementsByClassName("grid-container")[0];
@@ -29,7 +49,7 @@ function appendData(data) {
     //Add div which is front door
     let gridItemDiv = document.createElement("div");
     gridItemDiv.classList.add('grid-item');
-    gridItemDiv.innerHTML = element.DeliveryOption + "</br>" + element.price;
+    gridItemDiv.innerHTML = element.DeliveryOption + "</br>" + element.price + " " + element.currency;
 
 
 
@@ -49,7 +69,7 @@ function appendData(data) {
     a__HiddenText__and_positionDiv.appendChild(pTag);
     pTag.innerHTML = element.InnerButtonText;
 
-    
+
     //Add items to the backet
     pTag.addEventListener("click", function addToBacket() {
       backetArray.push({
@@ -57,17 +77,18 @@ function appendData(data) {
         "price": element.price,
         "currency": element.currency
       });
-      console.log(backetArray);
-
-      // let nameAndPrice = document.createElement("span");
-      // nameAndPrice.classList.add('item_price');
-      // nameAndPrice.innerHTML= backetArray;
-      // let span__name_price = document.getElementsByClassName("container_item_price")[0]; // Container on the second page with names pf items and their prices
-      // span__name_price.appendChild(nameAndPrice);
 
 
+      // Add sum of clicked items to the cart btn
+      let btnBacketPosition = document.getElementsByClassName("btnCartPrice")[0];
+
+      let sumOnCart = 0;
+      for (let i = 0; i < backetArray.length; i++) {
+        sumOnCart += backetArray[i].price;
+      }
 
 
+      btnBacketPosition.innerHTML = sumOnCart;
     });
 
 
@@ -83,21 +104,16 @@ function appendData(data) {
 
     //Add all divs to main container
     mainContainer.appendChild(boxDiv);
-
-
   });
 }
 
 
 //Making item button working
-document.getElementsByClassName('btn-backet')[0].onclick = function() {
-    sessionStorage.setItem('TheArray', JSON.stringify(backetArray));
-   
-  window.location.href='/page2.html';
+document.getElementsByClassName('btn-backet')[0].onclick = function () {
+  sessionStorage.setItem('TheArray', JSON.stringify(backetArray));
+
+  window.location.href = '/page2.html';
 };
-
-
-
 
 
 // NAVIGATION ANIMATION HAMBURGER

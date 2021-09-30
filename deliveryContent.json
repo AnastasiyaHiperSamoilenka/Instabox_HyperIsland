@@ -1,7 +1,7 @@
 [{
   "id": "1",
-  "DeliveryOption": "Home delivery",
-  "InnerButtonText": "Add to backet",
+  "DeliveryOption": "Post office delivery",
+  "InnerButtonText": "Add to cart",
   "price": 200, 
   "currency": "SEK"  
   
@@ -9,7 +9,7 @@
 {
   "id": "2",
   "DeliveryOption": "Post office delivery",
-  "InnerButtonText": "Add to backet",
+  "InnerButtonText": "Add to cart",
   "price": 34, 
   "currency": "SEK"  
 
@@ -17,7 +17,7 @@
 {
   "id": "3",
   "DeliveryOption": "Post office delivery",
-  "InnerButtonText": "Add to backet",
+  "InnerButtonText": "Add to cart",
   "price": 34, 
   "currency": "SEK" 
 
@@ -25,7 +25,7 @@
 {
   "id": "4",
   "DeliveryOption": "Post office delivery",
-  "InnerButtonText": "Add to backet",
+  "InnerButtonText": "Add to cart",
   "price": 34, 
   "currency": "SEK" 
 
@@ -33,7 +33,7 @@
 {
   "id": "5",
   "DeliveryOption": "Post office delivery",
-  "InnerButtonText": "Add to backet",
+  "InnerButtonText": "Add to cart",
   "price": 34, 
   "currency": "SEK"  
 
@@ -41,32 +41,32 @@
 {
   "id": "6",
   "DeliveryOption": "Post office delivery",
-  "InnerButtonText": "Add to backet",
-  "price": 34, 
+  "InnerButtonText": "Add to cart",
+  "price": 24, 
   "currency": "SEK"  
 
 },
 {
   "id": "7",
   "DeliveryOption": "Post office delivery",
-  "InnerButtonText": "Add to backet",
-  "price": 34, 
+  "InnerButtonText": "Add to cart",
+  "price": 14, 
   "currency": "SEK"  
 
 },
 {
   "id": "8",
   "DeliveryOption": "Post office delivery",
-  "InnerButtonText": "Add to backet",
-  "price": 34, 
+  "InnerButtonText": "Add to cart",
+  "price": 494, 
   "currency": "SEK"  
 
 },
 {
   "id": "9",
   "DeliveryOption": "Post office delivery",
-  "InnerButtonText": "Add to backet",
-  "price": 34, 
+  "InnerButtonText": "Add to cart",
+  "price": 26, 
   "currency": "SEK"  
 
 }

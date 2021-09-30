@@ -82,10 +82,15 @@ a {
 }
 
 .btn-backet {
+  display: flex;
   background-color: green;
   padding: 2.5rem;
 }
 
+.btn-backet:hover {
+  transform: scale(1.2);
+ 
+}
 /* THE CABINET-TABLE */
 
 .grid-container {
@@ -112,6 +117,8 @@ a {
 
 }
 
+
+
 .box a  {
   color:rgb(15, 8, 8);
   text-align: center;
@@ -135,6 +142,10 @@ a {
   
 }
 
+.btn_p:hover {
+  background-color: var(--primary-pink-clr);
+}
+
 /* MAKING DOOR OPENING */
 .box {
   background-color: rgba(133, 66, 66, 0.705);
@@ -152,7 +163,9 @@ a {
   transform: perspective(900px) rotateY(0deg);
   transform-origin: 0% 50%;
   animation: open 0.5s linear forwards;
-
+ color:rgb(255, 62, 62);
+ border: 1px solid black;
+ z-index: 5;
 }
 
 /* //TO FIX DOOR PERSPECTIVES */
@@ -257,8 +270,8 @@ label {
   font-size: 17px;
 }
 
-.btn:hover {
-  background-color: #45a049;
+.btn_p:hover {
+  background-color: var(--primary-pink-clr);
 }
 
 a {
@@ -302,6 +315,7 @@ span.price {
 
   .nav-menu.active {
     left: 0;
+    top:12%;
   }
 
   .nav-item {

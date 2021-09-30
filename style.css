@@ -81,13 +81,13 @@ a {
   color: var(--primary-white-clr);
 }
 
-.btn-backet {
+.Cart_btn {
   display: flex;
   background-color: green;
   padding: 2.5rem;
 }
 
-.btn-backet:hover {
+.Cart_btn:hover {
   transform: scale(1.2);
  
 }
@@ -105,7 +105,7 @@ a {
 
 /* FRONT DOOR */
 
-.grid-item {
+.box__first {
 
   background-color: var(--primary-red-clr);
   border: 1px solid rgba(0, 0, 0, 0.8);
@@ -125,7 +125,7 @@ a {
 }
 /* INSIDE THE BOX, HIDDEN TEXT */
 
-.hiddenText__and_position {
+.box__second {
   box-sizing: border-box;
   /* text */
   position: absolute;
@@ -166,6 +166,32 @@ a {
  color:rgb(255, 62, 62);
  border: 1px solid black;
  z-index: 5;
+}
+
+/* shaking box animation  */
+.box:hover {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
 
 /* //TO FIX DOOR PERSPECTIVES */
@@ -298,7 +324,6 @@ span.price {
   .nav-menu {
     position: fixed;
     left: -100%;
-    top: 5rem;
     flex-direction: column;
     background-color: #fff;
     width: 100%;
@@ -314,8 +339,9 @@ span.price {
   }
 
   .nav-menu.active {
+    position: fixed;
     left: 0;
-    top:12%;
+    top:4.1%;
   }
 
   .nav-item {
@@ -325,8 +351,10 @@ span.price {
   .hamburger {
     display: block;
     cursor: pointer;
+    cursor: auto;
   }
 
+  /* Select second element with .bar */
   .hamburger.active .bar:nth-child(2) {
     opacity: 0;
   }
@@ -358,7 +386,7 @@ span.price {
     max-width: inherit;
   }
 
-  .grid-item {
+  .box__first {
 
     background-color: var(--primary-red-clr);
     border: 1px solid rgba(0, 0, 0, 0.8);

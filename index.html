@@ -11,52 +11,53 @@
   <title>Instabox</title>
   <meta name="Description"
     content="It's a Hyper Island student project aiming to develop my skills within Html, Css and Js">
-
 </head>
 
 <body>
-  <header class="header">
-    <nav class="navbar">
-      <!--NAVIGATION BAR-->
+  <!--NAVIGATION BAR with Flexbox-->
+  <nav class="navbar">
+    <!-- LOGO -->
+    <a href="#" class="nav-logo">Instabox</a>
+    <!-- Menu  -->
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="#" class="nav-link">About us</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">Our locations</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">Track a package</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">Private</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">Job</a>
+      </li>
 
-      <a href="#" class="nav-logo">Instabox</a>
-      <ul class="nav-menu">
-        <li class="nav-item">
-          <a href="#" class="nav-link">About us</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">Our locations</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">Track a package</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">Private</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">Contact</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">Job</a>
-        </li>
-        <!-- SHOPPING CART -->
-        <li class="nav-item">
-          <button class="nav-link btn-backet "><i class="fa fa-shopping-cart"></i>&nbsp; Cart&nbsp;&nbsp; <p class="btnCartPrice"></p></button>
+      <!-- SHOPPING CART -->
+      <li class="nav-item">
+        <button class="nav-link Cart_btn ">
+          <i class="fa fa-shopping-cart"></i>&nbsp;Cart&nbsp;&nbsp;
+          <p class="btnCartPrice"></p>
+        </button>
+      </li>
+    </ul>
 
-        </li>
-      </ul>
-      <!-- NAVIGATION TOggLE -->
-      <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-    </nav>
-  </header>
+    <!-- NAVIGATION TOGGLE FOR SCREENS LESS THAN 980px -->
+    <div class="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+  </nav>
 
   <!-- THE CABINET -->
   <div class="grid-container"></div>
-
   <script src="/script.js"></script>
 
 </body>

@@ -146,34 +146,11 @@ a {
   background-color: var(--primary-pink-clr);
 }
 
-/* MAKING DOOR OPENING */
-.box {
-  background-color: rgba(133, 66, 66, 0.705);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  font-size: 30px;
-  text-align: center;
-  transition: all 0.5s ease-in-out;
-  z-index: 0;
-  position: relative;
-  block-size: fit-content;
-}
-
-
-.doorOpen {
-  transform: perspective(900px) rotateY(0deg);
-  transform-origin: 0% 50%;
-  animation: open 0.5s linear forwards;
- color:rgb(255, 62, 62);
- border: 1px solid black;
- z-index: 5;
-}
-
 /* shaking box animation  */
-.box:hover {
+/* .box:hover {
   animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
-  perspective: 1000px;
 }
 
 @keyframes shake {
@@ -192,7 +169,31 @@ a {
   40%, 60% {
     transform: translate3d(4px, 0, 0);
   }
+} */
+
+/* MAKING DOOR OPENING */
+.box {
+  background-color: rgba(133, 66, 66, 0.705);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  font-size: 30px;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  block-size: fit-content;
 }
+
+
+.doorOpen {
+  position:relative;
+  transform: perspective(900px) rotateY(0deg);
+  transform-origin: 0% 50%;
+  animation: open 0.5s linear forwards;
+ color:rgb(255, 62, 62);
+ border: 1px solid black;
+ z-index: 5;
+}
+
+
 
 /* //TO FIX DOOR PERSPECTIVES */
 
@@ -331,7 +332,7 @@ span.price {
     text-align: center;
     transition: 0.3s;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-    z-index: 3;
+    z-index: 20;
   }
 
   .nav-link {

@@ -1,7 +1,8 @@
 [{
   "id": "1",
   "DeliveryOption": "Post office delivery",
-  "InnerButtonText": "Add to cart",
+  "AddButton": "Add item",
+  "RemoveButton": "Remove item",
   "price": 200, 
   "currency": "SEK"  
   
@@ -9,7 +10,8 @@
 {
   "id": "2",
   "DeliveryOption": "Post office delivery",
-  "InnerButtonText": "Add to cart",
+  "AddButton": "Add item",
+  "RemoveButton": "Remove item",
   "price": 34, 
   "currency": "SEK"  
 
@@ -17,7 +19,8 @@
 {
   "id": "3",
   "DeliveryOption": "Post office delivery",
-  "InnerButtonText": "Add to cart",
+  "AddButton": "Add item",
+  "RemoveButton": "Remove item",
   "price": 34, 
   "currency": "SEK" 
 
@@ -25,7 +28,8 @@
 {
   "id": "4",
   "DeliveryOption": "Post office delivery",
-  "InnerButtonText": "Add to cart",
+  "AddButton": "Add item",
+  "RemoveButton": "Remove item",
   "price": 34, 
   "currency": "SEK" 
 
@@ -33,7 +37,8 @@
 {
   "id": "5",
   "DeliveryOption": "Post office delivery",
-  "InnerButtonText": "Add to cart",
+  "AddButton": "Add item",
+  "RemoveButton": "Remove item",
   "price": 34, 
   "currency": "SEK"  
 
@@ -41,7 +46,8 @@
 {
   "id": "6",
   "DeliveryOption": "Post office delivery",
-  "InnerButtonText": "Add to cart",
+  "AddButton": "Add item",
+  "RemoveButton": "Remove item",
   "price": 24, 
   "currency": "SEK"  
 
@@ -49,7 +55,8 @@
 {
   "id": "7",
   "DeliveryOption": "Post office delivery",
-  "InnerButtonText": "Add to cart",
+  "AddButton": "Add item",
+  "RemoveButton": "Remove item",
   "price": 14, 
   "currency": "SEK"  
 
@@ -57,7 +64,8 @@
 {
   "id": "8",
   "DeliveryOption": "Post office delivery",
-  "InnerButtonText": "Add to cart",
+  "AddButton": "Add item",
+  "RemoveButton": "Remove item",
   "price": 494, 
   "currency": "SEK"  
 
@@ -65,7 +73,8 @@
 {
   "id": "9",
   "DeliveryOption": "Post office delivery",
-  "InnerButtonText": "Add to cart",
+  "AddButton": "Add item",
+  "RemoveButton": "Remove item",
   "price": 26, 
   "currency": "SEK"  
 

@@ -100,6 +100,7 @@ a {
   grid-auto-rows: minmax(100px,auto);
   margin: 15vh 20vw;
   border: 15px solid var(--primary-red-clr);
+  min-width: 700px;
 }
 
 
@@ -114,20 +115,15 @@ a {
   text-align: center;
   z-index: 3;
   position: relative;
+  min-width: 210px;
 
 }
 
 
-
-.box a  {
-  color:rgb(15, 8, 8);
-  text-align: center;
-}
 /* INSIDE THE BOX, HIDDEN TEXT */
 
 .box__second {
   box-sizing: border-box;
-  /* text */
   position: absolute;
   z-index: 1;
   left: 3%;
@@ -135,11 +131,24 @@ a {
   top: 35%;
 }
 
+.box__second button {
+border: none;
+}
+
 /* btn inside the box */
-.btn_p {
-  padding: 0.5em;
+.btn_add {
+  padding: 1em;
+  width: 150px;
   background-color:#04AA6D;
-  
+  font-size: large;
+}
+
+.btn_remove {
+  padding: 1em;
+  width: 150px;
+
+  background-color: red;
+  font-size: large;
 }
 
 .btn_p:hover {
@@ -370,30 +379,28 @@ span.price {
 
   /* THE CABINET-TABLE */
 
-  #cabinet-table {
-    max-width: 400px;
-    max-height: 400px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .grid-container {
-    display: grid;
+   .grid-container {
     grid-template-columns: auto;
-    background-color: var(--primary-red-clr);
-    /* padding: 20px; */
-    max-width: inherit;
+    min-width: 200px;
+    
+  }
+  .box{
+    font-size: 3em;
   }
 
   .box__first {
-
     background-color: var(--primary-red-clr);
     border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 4rem;
-    font-size: 30px;
+    padding: 3em;
+    font-size: 0.9em;
     text-align: center;
+  }
+
+  .box__second{
+  
+    position: absolute;
+    top: 25px;
+
   }
 
   /* CHECKOUT FORM */

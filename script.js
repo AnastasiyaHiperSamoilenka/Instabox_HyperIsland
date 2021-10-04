@@ -13,7 +13,7 @@ fetch('deliveryContent.json')
     console.log('error: ' + err);
   });
 
-//Create array of objects 
+// FUTURE ARRAY OF CLICKED ITEMS
 let ArrayOfCartItems = [];
 
 // //Link to the session storage
@@ -37,47 +37,52 @@ function appendData(data) {
   let mainGridContainer = document.getElementsByClassName("grid-container")[0];
 
   data.forEach(element => {
-    //Add div which is Parent container to each box
+
+    // HTML ELEMENTS 
+
+
+    //BOX
     let boxDiv = document.createElement("div");
     boxDiv.classList.add('box');
 
-    //Add div which is front door
+    //FRONT DOOR
     let box__firstDiv = document.createElement("div");
     box__firstDiv.classList.add('box__first');
     box__firstDiv.innerHTML = element.DeliveryOption + "</br>" + element.price + " " + element.currency;
 
-
-
-    //Add div which is hidden box
+    //CONTENT OF THE BOX
     let box__secondDiv = document.createElement("div");
     box__secondDiv.classList.add('box__second');
 
-    //Add to the HTML <a> tag (button)to the hidden box with link
-    let a__box__secondDiv = document.createElement("a");
-    a__box__secondDiv.href = "#";
-    box__secondDiv.appendChild(a__box__secondDiv);
+    //ADD BUTTON
+    let secondDiv__button_add = document.createElement("button");
+    secondDiv__button_add.classList.add('btn_add');
+    box__secondDiv.appendChild(secondDiv__button_add);
+
+    //REMOVE BUTTON
+    let secondDiv__button_remove = document.createElement("button");
+    secondDiv__button_remove.classList.add('btn_remove');
+    box__secondDiv.appendChild(secondDiv__button_remove);
+
+    //BUTTON TEXT
+    secondDiv__button_add.innerHTML = element.AddButton;
+    secondDiv__button_remove.innerHTML = element.RemoveButton;
 
 
-    //Create p tag and append text to it
-    let pTag = document.createElement("p");
-    pTag.classList.add('btn_p');
-    a__box__secondDiv.appendChild(pTag);
-    pTag.innerHTML = element.InnerButtonText;
-
-
-    //Add items to the Cart
-    pTag.addEventListener("click", function addToCart() {
+    //ADD ITEMS TO THE CART
+    secondDiv__button_add.addEventListener("click", function addToCart() {
 
       ArrayOfCartItems.push({
+        "id": element.id,
         "DeliveryOption": element.DeliveryOption,
         "price": element.price,
         "currency": element.currency
       });
 
-      // Add sum of clicked items to the cart btn
       let Cart_btn = document.getElementsByClassName("btnCartPrice")[0];
-
       let sumOnCart = 0;
+
+      //COUNT ITEMS
       for (let i = 0; i < ArrayOfCartItems.length; i++) {
         sumOnCart += ArrayOfCartItems[i].price;
       }
@@ -86,15 +91,28 @@ function appendData(data) {
     });
 
 
+    // REMOVE ITEMS FROM THE CART
+    secondDiv__button_remove.addEventListener("click", function removeFromCart() {
+      let Cart_btn = document.getElementsByClassName("btnCartPrice")[0];
+      let index = ArrayOfCartItems.findIndex(y => y.id === element.id);
+
+      if (index !== -1) {
+        ArrayOfCartItems.splice(index, 1);
+        Cart_btn.innerHTML -= element.price;
+      }
+
+    });
+
+
     //Add box__first div and box__second div to the box which is their container
     boxDiv.appendChild(box__firstDiv);
     boxDiv.appendChild(box__secondDiv);
 
-    //Make door rotation by changing class on click
+
+    //DOOR ROTATION
     boxDiv.addEventListener("click", function toggleDoor() {
       boxDiv.children[0].classList.toggle("doorOpen");
     });
-
 
     //Add all divs to main container
     mainGridContainer.appendChild(boxDiv);
@@ -102,7 +120,7 @@ function appendData(data) {
 }
 
 
-//Making item button working
+//CHECKOUT BUTTON
 document.getElementsByClassName('Cart_btn')[0].onclick = function () {
   //Session storage  method called to store values of Cart items from the array in the session storage
   sessionStorage.setItem('TheArray', JSON.stringify(ArrayOfCartItems));
@@ -112,7 +130,7 @@ document.getElementsByClassName('Cart_btn')[0].onclick = function () {
 };
 
 
-// NAVIGATION ANIMATION HAMBURGER
+// HAMBURGER ANIMATION
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 

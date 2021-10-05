@@ -45,15 +45,7 @@ a {
   display: none;
 }
 
-.bar {
-  display: block;
-  width: 25px;
-  height: 3px;
-  margin: 5px auto;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background-color: var(--primary-white-clr);
-}
+
 
 .nav-menu {
   display: flex;
@@ -81,11 +73,16 @@ a {
   color: var(--primary-white-clr);
 }
 
-.btn-backet {
+.Cart_btn {
+  display: flex;
   background-color: green;
   padding: 2.5rem;
 }
 
+.Cart_btn:hover {
+  transform: scale(1.2);
+ 
+}
 /* THE CABINET-TABLE */
 
 .grid-container {
@@ -95,12 +92,13 @@ a {
   grid-auto-rows: minmax(100px,auto);
   margin: 15vh 20vw;
   border: 15px solid var(--primary-red-clr);
+  min-width: 700px;
 }
 
 
 /* FRONT DOOR */
 
-.grid-item {
+.box__first {
 
   background-color: var(--primary-red-clr);
   border: 1px solid rgba(0, 0, 0, 0.8);
@@ -109,31 +107,105 @@ a {
   text-align: center;
   z-index: 3;
   position: relative;
+  min-width: 210px;
+  will-change: transform;
+  transition: transform 1s;
+  transform-origin: 0% 50%;
 
 }
 
-.box a  {
-  color:rgb(15, 8, 8);
-  text-align: center;
-}
+
 /* INSIDE THE BOX, HIDDEN TEXT */
 
-.hiddenText__and_position {
+.box__second {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.5em;
   box-sizing: border-box;
-  /* text */
   position: absolute;
   z-index: 1;
-  left: 3%;
+  left: 20%;
   right: 3%;
   top: 35%;
+  background: white;
+  width: 250px;
+  border-radius: 50px;
+}
+
+.box__second button {
+  /* border: none; */
 }
 
 /* btn inside the box */
-.btn_p {
-  padding: 0.5em;
+.btn_add {
+  padding: 2rem;
+  width: 80px;
   background-color:#04AA6D;
-  
+  font-size: large;
+  font-size: 8rem;
+  border-radius:  50px 0 0 50px;
+
 }
+
+.counter_field {
+  background: white;
+  padding: 2rem;
+  width: 80px;
+  /* box-sizing:unset; */
+  text-align: center;
+  font-size: large;
+  font-size: 8rem;
+  border-radius: 50px;
+
+
+}
+
+.btn_remove {
+  padding: 2rem;
+  width: 80px;
+  background-color: red;
+  font-size:larger;
+  font-size: 8rem;
+  border-radius:  0px 50px 50px 0;
+}
+
+.btn_add.fa {
+  font-size: 50px;
+}
+
+.btn_remove.fa {
+  font-size: 50px;
+}
+
+.btn_p:hover {
+  background-color: var(--primary-pink-clr);
+}
+
+/* shaking box animation  */
+/* .box:hover {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+} */
 
 /* MAKING DOOR OPENING */
 .box {
@@ -142,27 +214,23 @@ a {
   font-size: 30px;
   text-align: center;
   transition: all 0.5s ease-in-out;
-  z-index: 0;
+  /* transition: 0.5s; */
   position: relative;
   block-size: fit-content;
 }
 
 
-.doorOpen {
-  transform: perspective(900px) rotateY(0deg);
+.box:hover .box__first{
+  position:relative;
+  /* transform: perspective(900px) rotateY(0deg); */
+  transform: perspective(8000px) rotateY(-100deg);
+  transition: transform 1s;
   transform-origin: 0% 50%;
-  animation: open 0.5s linear forwards;
-
+  /* animation: open 0.5s linear forwards; */
+  color:rgb(255, 62, 62);
+  border: 1px solid black;
+  z-index: 5;
 }
-
-/* //TO FIX DOOR PERSPECTIVES */
-
-@keyframes open {
-	100%{
-    transform: perspective(8000px) rotateY(-100deg);
-    }
-}
-
 
 
 /* CHECKOUT FORM */
@@ -257,8 +325,8 @@ label {
   font-size: 17px;
 }
 
-.btn:hover {
-  background-color: #45a049;
+.btn_p:hover {
+  background-color: var(--primary-pink-clr);
 }
 
 a {
@@ -279,13 +347,13 @@ span.price {
   padding: 1rem;
 }
 
+
 /* SCREENS LESS THAN 890px */
 
 @media only screen and (max-width: 890px) {
   .nav-menu {
     position: fixed;
     left: -100%;
-    top: 5rem;
     flex-direction: column;
     background-color: #fff;
     width: 100%;
@@ -293,7 +361,7 @@ span.price {
     text-align: center;
     transition: 0.3s;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-    z-index: 3;
+    z-index: 20;
   }
 
   .nav-link {
@@ -301,18 +369,32 @@ span.price {
   }
 
   .nav-menu.active {
+    position: fixed;
     left: 0;
+    top:4.1%;
   }
 
   .nav-item {
     margin: 2.5rem 0;
   }
 
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--primary-white-clr);
+  }
+
   .hamburger {
     display: block;
     cursor: pointer;
+    cursor: auto;
   }
 
+  /* Select second element with .bar */
   .hamburger.active .bar:nth-child(2) {
     opacity: 0;
   }
@@ -327,32 +409,40 @@ span.price {
 
   /* THE CABINET-TABLE */
 
-  #cabinet-table {
-    max-width: 400px;
-    max-height: 400px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .grid-container {
-    display: grid;
+   .grid-container {
     grid-template-columns: auto;
-    background-color: var(--primary-red-clr);
-    /* padding: 20px; */
-    max-width: inherit;
+    min-width: 200px;
+    
+  }
+  .box{
+    font-size: 3em;
   }
 
-  .grid-item {
-
+  .box__first {
     background-color: var(--primary-red-clr);
     border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 4rem;
-    font-size: 30px;
+    padding: 3em;
+    font-size: 0.9em;
     text-align: center;
+    will-change: transform;
+    transition: transform 1s;
+    transform-origin: 0% 50%;
   }
 
+  .box__second{
+  
+    position: absolute;
+    top: 25px;
+
+  }
+
+  .btn_remove {
+    padding: 2rem;
+    /* width: 80px; */
+    background-color: red;
+    font-size:large;
+    /* font-weight: 800; */
+  }
   /* CHECKOUT FORM */
   .row {
     flex-direction: column-reverse;

@@ -16,7 +16,7 @@ fetch('deliveryContent.json')
 // FUTURE ARRAY OF CLICKED ITEMS
 let ArrayOfCartItems = [];
 
-// //Link to the session storage
+//Link to the session storage
 // let sessionString = sessionStorage.getItem('TheArray');
 // if (sessionString) {
 //   ArrayOfCartItems = JSON.parse(sessionString);
@@ -28,7 +28,6 @@ let ArrayOfCartItems = [];
 //   for (let i = 0; i < ArrayOfCartItems.length; i++) {
 //     sumOnCart += ArrayOfCartItems[i].price;
 //   }
-
 
 //   Cart_btn.innerHTML = sumOnCart;
 // }
@@ -50,24 +49,37 @@ function appendData(data) {
     box__firstDiv.classList.add('box__first');
     box__firstDiv.innerHTML = element.DeliveryOption + "</br>" + element.price + " " + element.currency;
 
+
     //CONTENT OF THE BOX
     let box__secondDiv = document.createElement("div");
     box__secondDiv.classList.add('box__second');
 
+    //Add box__first div and box__second div to the box which is their container
+    boxDiv.appendChild(box__firstDiv);
+    boxDiv.appendChild(box__secondDiv);
+
+
     //ADD BUTTON
     let secondDiv__button_add = document.createElement("button");
     secondDiv__button_add.classList.add('btn_add');
+    secondDiv__button_add.classList.add('fa');
+    secondDiv__button_add.classList.add('fa-plus');
     box__secondDiv.appendChild(secondDiv__button_add);
+
+    // COUNTING FIELD
+    let countField = document.createElement("div");
+    countField.classList.add('counter_field');
+    box__secondDiv.appendChild(countField);
+    countField.innerHTML = 0;
+
 
     //REMOVE BUTTON
     let secondDiv__button_remove = document.createElement("button");
     secondDiv__button_remove.classList.add('btn_remove');
+    secondDiv__button_remove.classList.add('fa');
+    secondDiv__button_remove.classList.add('fa-minus');
+
     box__secondDiv.appendChild(secondDiv__button_remove);
-
-    //BUTTON TEXT
-    secondDiv__button_add.innerHTML = element.AddButton;
-    secondDiv__button_remove.innerHTML = element.RemoveButton;
-
 
     //ADD ITEMS TO THE CART
     secondDiv__button_add.addEventListener("click", function addToCart() {
@@ -82,12 +94,15 @@ function appendData(data) {
       let Cart_btn = document.getElementsByClassName("btnCartPrice")[0];
       let sumOnCart = 0;
 
-      //COUNT ITEMS
+
+      //COUNT ITEM'S Price
       for (let i = 0; i < ArrayOfCartItems.length; i++) {
         sumOnCart += ArrayOfCartItems[i].price;
       }
 
       Cart_btn.innerHTML = sumOnCart;
+      countField.innerHTML++;
+
     });
 
 
@@ -99,19 +114,9 @@ function appendData(data) {
       if (index !== -1) {
         ArrayOfCartItems.splice(index, 1);
         Cart_btn.innerHTML -= element.price;
+        countField.innerHTML--; //Remove counter field's value
       }
 
-    });
-
-
-    //Add box__first div and box__second div to the box which is their container
-    boxDiv.appendChild(box__firstDiv);
-    boxDiv.appendChild(box__secondDiv);
-
-
-    //DOOR ROTATION
-    boxDiv.addEventListener("click", function toggleDoor() {
-      boxDiv.children[0].classList.toggle("doorOpen");
     });
 
     //Add all divs to main container

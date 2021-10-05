@@ -45,15 +45,7 @@ a {
   display: none;
 }
 
-.bar {
-  display: block;
-  width: 25px;
-  height: 3px;
-  margin: 5px auto;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background-color: var(--primary-white-clr);
-}
+
 
 .nav-menu {
   display: flex;
@@ -116,6 +108,9 @@ a {
   z-index: 3;
   position: relative;
   min-width: 210px;
+  will-change: transform;
+  transition: transform 1s;
+  transform-origin: 0% 50%;
 
 }
 
@@ -123,32 +118,64 @@ a {
 /* INSIDE THE BOX, HIDDEN TEXT */
 
 .box__second {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.5em;
   box-sizing: border-box;
   position: absolute;
   z-index: 1;
-  left: 3%;
+  left: 20%;
   right: 3%;
   top: 35%;
+  background: white;
+  width: 250px;
+  border-radius: 50px;
 }
 
 .box__second button {
-border: none;
+  /* border: none; */
 }
 
 /* btn inside the box */
 .btn_add {
-  padding: 1em;
-  width: 150px;
+  padding: 2rem;
+  width: 80px;
   background-color:#04AA6D;
   font-size: large;
+  font-size: 8rem;
+  border-radius:  50px 0 0 50px;
+
+}
+
+.counter_field {
+  background: white;
+  padding: 2rem;
+  width: 80px;
+  /* box-sizing:unset; */
+  text-align: center;
+  font-size: large;
+  font-size: 8rem;
+  border-radius: 50px;
+
+
 }
 
 .btn_remove {
-  padding: 1em;
-  width: 150px;
-
+  padding: 2rem;
+  width: 80px;
   background-color: red;
-  font-size: large;
+  font-size:larger;
+  font-size: 8rem;
+  border-radius:  0px 50px 50px 0;
+}
+
+.btn_add.fa {
+  font-size: 50px;
+}
+
+.btn_remove.fa {
+  font-size: 50px;
 }
 
 .btn_p:hover {
@@ -187,31 +214,23 @@ border: none;
   font-size: 30px;
   text-align: center;
   transition: all 0.5s ease-in-out;
+  /* transition: 0.5s; */
   position: relative;
   block-size: fit-content;
 }
 
 
-.doorOpen {
+.box:hover .box__first{
   position:relative;
-  transform: perspective(900px) rotateY(0deg);
+  /* transform: perspective(900px) rotateY(0deg); */
+  transform: perspective(8000px) rotateY(-100deg);
+  transition: transform 1s;
   transform-origin: 0% 50%;
-  animation: open 0.5s linear forwards;
- color:rgb(255, 62, 62);
- border: 1px solid black;
- z-index: 5;
+  /* animation: open 0.5s linear forwards; */
+  color:rgb(255, 62, 62);
+  border: 1px solid black;
+  z-index: 5;
 }
-
-
-
-/* //TO FIX DOOR PERSPECTIVES */
-
-@keyframes open {
-	100%{
-    transform: perspective(8000px) rotateY(-100deg);
-    }
-}
-
 
 
 /* CHECKOUT FORM */
@@ -328,6 +347,7 @@ span.price {
   padding: 1rem;
 }
 
+
 /* SCREENS LESS THAN 890px */
 
 @media only screen and (max-width: 890px) {
@@ -356,6 +376,16 @@ span.price {
 
   .nav-item {
     margin: 2.5rem 0;
+  }
+
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--primary-white-clr);
   }
 
   .hamburger {
@@ -394,6 +424,9 @@ span.price {
     padding: 3em;
     font-size: 0.9em;
     text-align: center;
+    will-change: transform;
+    transition: transform 1s;
+    transform-origin: 0% 50%;
   }
 
   .box__second{
@@ -403,6 +436,13 @@ span.price {
 
   }
 
+  .btn_remove {
+    padding: 2rem;
+    /* width: 80px; */
+    background-color: red;
+    font-size:large;
+    /* font-weight: 800; */
+  }
   /* CHECKOUT FORM */
   .row {
     flex-direction: column-reverse;

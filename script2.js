@@ -32,12 +32,32 @@ for (let i = 0; i < page2Array.length; i++) {
   total += page2Array[i].price;
 }
 
-totalPrice.innerHTML= "Total " + total + " " + page2Array[0].currency;
+totalPrice.innerHTML= "Total " + total + " " + ( page2Array[0]? page2Array[0].currency : "SEK");
 span__name_price.appendChild(totalPrice);
 
 
 // CART COUNTING ITEMS
 
 document.getElementsByClassName("countingCart")[0].innerHTML= page2Array.length;
+
+// HAMBURGER ANIMATION
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+hamburger.addEventListener("click", mobileMenu);
+
+function mobileMenu() {
+  hamburger.classList.toggle("active");
+  navMenu.classList.toggle("active");
+}
+
+const navLink = document.querySelectorAll(".nav-link");
+
+navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+function closeMenu() {
+  hamburger.classList.remove("active");
+  navMenu.classList.remove("active");
+}
 
 

@@ -7,9 +7,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
 
-body {
-  background-color: #ffa2a2;
-}
 
 * {
   margin: 0;
@@ -17,16 +14,16 @@ body {
   box-sizing: border-box;
 }
 
+body {
+  background-color: #ffa2a2;
+}
+
 html {
   font-size: 0.40rem;
   font-family: 'Roboto', sans-serif;
 }
 
-/* NAVIGATION BAR */
-
-li {
-  list-style: none;
-}
+/***************** NAVIGATION BAR ****************/
 
 a {
   text-decoration: none;
@@ -41,11 +38,11 @@ a {
   z-index: 3;
 }
 
-.hamburger {
-  display: none;
+.nav-logo {
+  font-size: 4rem;
+  font-weight: 500;
+  color: var(--primary-white-clr);
 }
-
-
 
 .nav-menu {
   display: flex;
@@ -53,24 +50,15 @@ a {
   align-items: center;
 }
 
-.nav-item {
-  margin-left: 5rem;
-}
-
 .nav-link {
   font-size: 4rem;
   font-weight: 400;
+  margin-left: 5rem;
   color: var(--primary-white-clr);
 }
 
 .nav-link:hover {
   text-decoration: underline;
-}
-
-.nav-logo {
-  font-size: 4rem;
-  font-weight: 500;
-  color: var(--primary-white-clr);
 }
 
 .Cart_btn {
@@ -79,111 +67,8 @@ a {
   padding: 2.5rem;
 }
 
+/* SHAKING ANIMATION */
 .Cart_btn:hover {
-  transform: scale(1.2);
- 
-}
-/* THE CABINET-TABLE */
-
-.grid-container {
-  display: grid;
-  grid-template-columns:repeat(3,1fr);
-  background-color: var(--primary-red-clr);
-  grid-auto-rows: minmax(100px,auto);
-  margin: 15vh 20vw;
-  border: 15px solid var(--primary-red-clr);
-  min-width: 700px;
-}
-
-
-/* FRONT DOOR */
-
-.box__first {
-
-  background-color: var(--primary-red-clr);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20%;
-  font-size: 30px;
-  text-align: center;
-  z-index: 3;
-  position: relative;
-  min-width: 210px;
-  will-change: transform;
-  transition: transform 1s;
-  transform-origin: 0% 50%;
-
-}
-
-
-/* INSIDE THE BOX, HIDDEN TEXT */
-
-.box__second {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.5em;
-  box-sizing: border-box;
-  position: absolute;
-  z-index: 1;
-  left: 20%;
-  right: 3%;
-  top: 35%;
-  background: white;
-  width: 250px;
-  border-radius: 50px;
-}
-
-.box__second button {
-  /* border: none; */
-}
-
-/* btn inside the box */
-.btn_add {
-  padding: 2rem;
-  width: 80px;
-  background-color:#04AA6D;
-  font-size: large;
-  font-size: 8rem;
-  border-radius:  50px 0 0 50px;
-
-}
-
-.counter_field {
-  background: white;
-  padding: 2rem;
-  width: 80px;
-  /* box-sizing:unset; */
-  text-align: center;
-  font-size: large;
-  font-size: 8rem;
-  border-radius: 50px;
-
-
-}
-
-.btn_remove {
-  padding: 2rem;
-  width: 80px;
-  background-color: red;
-  font-size:larger;
-  font-size: 8rem;
-  border-radius:  0px 50px 50px 0;
-}
-
-.btn_add.fa {
-  font-size: 50px;
-}
-
-.btn_remove.fa {
-  font-size: 50px;
-}
-
-.btn_p:hover {
-  background-color: var(--primary-pink-clr);
-}
-
-/* shaking box animation  */
-/* .box:hover {
   animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
@@ -205,35 +90,122 @@ a {
   40%, 60% {
     transform: translate3d(4px, 0, 0);
   }
-} */
+}
 
-/* MAKING DOOR OPENING */
+.Cart_btn:hover {
+  transform: scale(1.2);
+}
+
+.hamburger {
+  display: none;
+}
+
+/********************** THE CABINET-TABLE****************/
+
+.grid-container {
+  display: grid;
+  grid-template-columns:repeat(3,1fr);
+  background-color: var(--primary-red-clr);
+  grid-auto-rows: minmax(100px,auto);
+  margin: 15vh 20vw;
+  border: 15px solid var(--primary-red-clr);
+  min-width: 700px;
+}
+
+/* FRONT DOOR */
+.box__first {
+
+  background-color: var(--primary-red-clr);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20%;
+  font-size: 30px;
+  text-align: center;
+  z-index: 3;
+  position: relative;
+  min-width: 210px;
+  will-change: transform;
+  transition: transform 1s;
+  transform-origin: 0% 50%;
+
+}
+
+/* INSIDE THE BOX, HIDDEN TEXT */
+.box__second {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.5em;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 1;
+  left: 20%;
+  right: 3%;
+  top: 35%;
+  background: white;
+  width: 250px;
+  border-radius: 50px;
+}
+
+/* ADD BTN */
+.btn_add {
+  padding: 2rem;
+  width: 80px;
+  background-color:#04AA6D;
+  font-size: large;
+  font-size: 8rem;
+  border-radius:  50px 0 0 50px;
+}
+
+.counter_field {
+  background: white;
+  padding: 2rem;
+  width: 80px;
+  /* box-sizing:unset; */
+  text-align: center;
+  font-size: large;
+  font-size: 8rem;
+  border-radius: 50px;
+}
+
+.btn_remove {
+  padding: 2rem;
+  width: 80px;
+  background-color: red;
+  font-size:larger;
+  font-size: 8rem;
+  border-radius:  0px 50px 50px 0;
+}
+
+.btn_add.fa {
+  font-size: 50px;
+}
+
+.btn_remove.fa {
+  font-size: 50px;
+}
+
+/********************* MAKING DOOR OPENING **************'**/
 .box {
   background-color: rgba(133, 66, 66, 0.705);
   border: 1px solid rgba(0, 0, 0, 0.8);
   font-size: 30px;
   text-align: center;
   transition: all 0.5s ease-in-out;
-  /* transition: 0.5s; */
   position: relative;
   block-size: fit-content;
 }
 
-
 .box:hover .box__first{
   position:relative;
-  /* transform: perspective(900px) rotateY(0deg); */
   transform: perspective(8000px) rotateY(-100deg);
   transition: transform 1s;
   transform-origin: 0% 50%;
-  /* animation: open 0.5s linear forwards; */
   color:rgb(255, 62, 62);
   border: 1px solid black;
   z-index: 5;
 }
 
-
-/* CHECKOUT FORM */
+/******************* CHECKOUT FORM FROM PAGE 2 ***************/
 .checkout {
   box-sizing: border-box;
   margin: 10rem 5rem;
@@ -242,7 +214,6 @@ a {
 
 .checkout h2 {
   text-align: center;
-  /* margin: 5rem; */
   background-color:lavender;
   padding: 3rem ;
 }
@@ -251,33 +222,26 @@ a {
   margin: 2.5rem;
 }
 
-
 .row {
   display: -ms-flexbox;
-  /* IE10 */
   display: flex;
   -ms-flex-wrap: wrap;
-  /* IE10 */
   flex-wrap: wrap;
-  
   margin: 0 -16px;
 }
 
 .col-25 {
   -ms-flex: 25%;
-  /* IE10 */
   flex: 25%;
 }
 
 .col-50 {
   -ms-flex: 50%;
-  /* IE10 */
   flex: 50%;
 }
 
 .col-75 {
   -ms-flex: 75%;
-  /* IE10 */
   flex: 75%;
 }
 
@@ -286,7 +250,7 @@ a {
 .col-75 {
   padding: 0 16px;
 }
-
+/******************** CONTAINER WITH ITEMS ********************/
 .container_item_price {
   background-color: #eecccc;
   padding: 5px 20px 15px 20px;
@@ -313,7 +277,7 @@ label {
   font-size: 24px;
 }
 
-.btn {
+.submit_btn {
   background-color: #04AA6D;
   color: white;
   padding: 12px;
@@ -323,14 +287,6 @@ label {
   border-radius: 3px;
   cursor: pointer;
   font-size: 17px;
-}
-
-.btn_p:hover {
-  background-color: var(--primary-pink-clr);
-}
-
-a {
-  color: #2196F3;
 }
 
 hr {
@@ -347,10 +303,10 @@ span.price {
   padding: 1rem;
 }
 
-
-/* SCREENS LESS THAN 890px */
-
+/************************** SCREENS LESS THAN 890px ***********************/
 @media only screen and (max-width: 890px) {
+
+/*''''''''''''' MENU'''''''''''' */
   .nav-menu {
     position: fixed;
     left: -100%;
@@ -366,16 +322,14 @@ span.price {
 
   .nav-link {
     color: var(--primary-red-clr);
+    margin: 2.5rem 0;
+
   }
 
   .nav-menu.active {
     position: fixed;
     left: 0;
     top:4.1%;
-  }
-
-  .nav-item {
-    margin: 2.5rem 0;
   }
 
   .bar {
@@ -407,7 +361,7 @@ span.price {
     transform: translateY(-8px) rotate(-45deg);
   }
 
-  /* THE CABINET-TABLE */
+  /*''''''''''''''' THE CABINET-TABLE ''''''''''''''''*/
 
    .grid-container {
     grid-template-columns: auto;
@@ -418,31 +372,12 @@ span.price {
     font-size: 3em;
   }
 
-  .box__first {
-    background-color: var(--primary-red-clr);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 3em;
-    font-size: 0.9em;
-    text-align: center;
-    will-change: transform;
-    transition: transform 1s;
-    transform-origin: 0% 50%;
-  }
-
   .box__second{
+    top: 70px;
+    right: 20px;
+  }
+
   
-    position: absolute;
-    top: 25px;
-
-  }
-
-  .btn_remove {
-    padding: 2rem;
-    /* width: 80px; */
-    background-color: red;
-    font-size:large;
-    /* font-weight: 800; */
-  }
   /* CHECKOUT FORM */
   .row {
     flex-direction: column-reverse;

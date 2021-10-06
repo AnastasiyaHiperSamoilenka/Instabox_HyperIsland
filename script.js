@@ -58,11 +58,16 @@ function appendData(data) {
     boxDiv.appendChild(box__firstDiv);
     boxDiv.appendChild(box__secondDiv);
 
+    //PRIMARY ADD BUTTON
+    let firstAddBtn = document.createElement('button');
+    firstAddBtn.classList.add('primaryAddBtn');
+    box__secondDiv.appendChild(firstAddBtn);
+    firstAddBtn.innerHTML = "ADD";
+
 
     //ADD BUTTON
     let secondDiv__button_add = document.createElement("button");
     secondDiv__button_add.classList.add('btn_add');
-    secondDiv__button_add.classList.add('fa');
     secondDiv__button_add.classList.add('fa-plus');
     box__secondDiv.appendChild(secondDiv__button_add);
 
@@ -76,7 +81,6 @@ function appendData(data) {
     //REMOVE BUTTON
     let secondDiv__button_remove = document.createElement("button");
     secondDiv__button_remove.classList.add('btn_remove');
-    secondDiv__button_remove.classList.add('fa');
     secondDiv__button_remove.classList.add('fa-minus');
 
     box__secondDiv.appendChild(secondDiv__button_remove);
@@ -92,15 +96,8 @@ function appendData(data) {
       });
 
       let Cart_btn = document.getElementsByClassName("btnCartPrice")[0];
-      let sumOnCart = 0;
 
-
-      //COUNT ITEM'S Price
-      for (let i = 0; i < ArrayOfCartItems.length; i++) {
-        sumOnCart += ArrayOfCartItems[i].price;
-      }
-
-      Cart_btn.innerHTML = sumOnCart;
+      Cart_btn.innerHTML = parseInt(Cart_btn.innerHTML, 10) + element.price;
       countField.innerHTML++;
 
     });
@@ -116,8 +113,45 @@ function appendData(data) {
         Cart_btn.innerHTML -= element.price;
         countField.innerHTML--; //Remove counter field's value
       }
+      if (countField.innerHTML == "0") {
+        firstAddBtn.style.display = "block";
 
+        secondDiv__button_remove.classList.remove('fa');
+        secondDiv__button_add.classList.remove('fa');
+
+        box__secondDiv.style.backgroundColor = "rgba(133, 66, 66, 0.705)";
+        secondDiv__button_add.style.display = "none";
+        countField.style.display = "none";
+        secondDiv__button_remove.style.display = "none";
+      }
     });
+
+
+    // CHANGE BUTTONS INSIDE THE BOX ANIMATION
+    firstAddBtn.addEventListener('click', function changeTheBtn() {
+      firstAddBtn.style.display = "none";
+
+      secondDiv__button_remove.classList.add('fa');
+      secondDiv__button_add.classList.add('fa');
+
+      box__secondDiv.style.backgroundColor = "white";
+      secondDiv__button_add.style.display = "block";
+      countField.style.display = "block";
+      secondDiv__button_remove.style.display = "block";
+
+      ArrayOfCartItems.push({
+        "id": element.id,
+        "DeliveryOption": element.DeliveryOption,
+        "price": element.price,
+        "currency": element.currency
+      });
+
+      let Cart_btn = document.getElementsByClassName("btnCartPrice")[0];
+
+      Cart_btn.innerHTML = (parseInt(Cart_btn.innerHTML, 10) ? parseInt(Cart_btn.innerHTML, 10) : 0) + element.price;
+      countField.innerHTML++;
+
+    })
 
     //Add all divs to main container
     mainGridContainer.appendChild(boxDiv);

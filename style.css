@@ -45,6 +45,7 @@ a {
 }
 
 .nav-menu {
+  margin-top: 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -68,7 +69,7 @@ a {
 }
 
 /* SHAKING ANIMATION */
-.Cart_btn:hover {
+.primaryAddBtn:hover {
   animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
@@ -106,10 +107,23 @@ a {
   display: grid;
   grid-template-columns:repeat(3,1fr);
   background-color: var(--primary-red-clr);
-  grid-auto-rows: minmax(100px,auto);
+  grid-auto-rows: minmax(100px, auto);
   margin: 15vh 20vw;
   border: 15px solid var(--primary-red-clr);
   min-width: 700px;
+}
+
+.box {
+  background-color: rgba(133, 66, 66, 0.705);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  font-size: 30px;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  block-size: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* FRONT DOOR */
@@ -122,8 +136,8 @@ a {
   text-align: center;
   z-index: 3;
   position: relative;
-  min-width: 210px;
-  will-change: transform;
+  width: 100%;
+  /* will-change: transform; */
   transition: transform 1s;
   transform-origin: 0% 50%;
 
@@ -132,35 +146,36 @@ a {
 /* INSIDE THE BOX, HIDDEN TEXT */
 .box__second {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.5em;
-  box-sizing: border-box;
   position: absolute;
   z-index: 1;
-  left: 20%;
-  right: 3%;
-  top: 35%;
-  background: white;
-  width: 250px;
   border-radius: 50px;
+}
+
+/* PRIMARY ADD BTN */
+.primaryAddBtn {
+  padding: 2rem;
+  background-color:#04AA6D;
+  width: 150px;
+  border-radius:10px;
+  font-size: 4rem;
+
 }
 
 /* ADD BTN */
 .btn_add {
+  display: none;
   padding: 2rem;
-  width: 80px;
+  max-width: 80px;
   background-color:#04AA6D;
-  font-size: large;
   font-size: 8rem;
   border-radius:  50px 0 0 50px;
 }
 
 .counter_field {
+    display: none;
   background: white;
   padding: 2rem;
-  width: 80px;
-  /* box-sizing:unset; */
+  max-width: 80px;
   text-align: center;
   font-size: large;
   font-size: 8rem;
@@ -168,8 +183,9 @@ a {
 }
 
 .btn_remove {
+    display: none;
   padding: 2rem;
-  width: 80px;
+  max-width: 80px;
   background-color: red;
   font-size:larger;
   font-size: 8rem;
@@ -184,17 +200,8 @@ a {
   font-size: 50px;
 }
 
-/********************* MAKING DOOR OPENING **************'**/
-.box {
-  background-color: rgba(133, 66, 66, 0.705);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  font-size: 30px;
-  text-align: center;
-  transition: all 0.5s ease-in-out;
-  position: relative;
-  block-size: fit-content;
-}
 
+/********************* MAKING DOOR OPENING **************'**/
 .box:hover .box__first{
   position:relative;
   transform: perspective(8000px) rotateY(-100deg);
@@ -209,9 +216,12 @@ a {
 .checkout {
   box-sizing: border-box;
   margin: 10rem 5rem;
-  font-size: 3rem;
+  font-size: 7rem;
 }
 
+input {
+  font-size: 100%;
+}
 .checkout h2 {
   text-align: center;
   background-color:lavender;
@@ -221,6 +231,7 @@ a {
 .checkout h3 {
   margin: 2.5rem;
 }
+
 
 .row {
   display: -ms-flexbox;
@@ -286,7 +297,7 @@ label {
   width: 100%;
   border-radius: 3px;
   cursor: pointer;
-  font-size: 17px;
+  font-size: 70px;
 }
 
 hr {
@@ -370,11 +381,7 @@ span.price {
   }
   .box{
     font-size: 3em;
-  }
-
-  .box__second{
-    top: 70px;
-    right: 20px;
+    /* overflow: hidden; */
   }
 
   
@@ -382,6 +389,17 @@ span.price {
   .row {
     flex-direction: column-reverse;
   }
+
+  .checkout {
+   
+    font-size: 4rem;
+  }
+
+  .submit_btn {
+  
+    font-size: 15px;
+  }
+
 
   .col-25 {
     margin-bottom: 20px;

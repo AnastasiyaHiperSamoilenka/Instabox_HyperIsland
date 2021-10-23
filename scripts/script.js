@@ -165,7 +165,7 @@ document.getElementsByClassName('Cart_btn')[0].onclick = function () {
   sessionStorage.setItem('TheArray', JSON.stringify(ArrayOfCartItems));
 
   // redirect us to the second page whet Cart button is clicked
-  window.location.href = '/page2.html';
+  window.location.href = 'page2.html';
 };
 
 

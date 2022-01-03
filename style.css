@@ -216,16 +216,17 @@ a {
 .checkout {
   box-sizing: border-box;
   margin: 10rem 5rem;
-  font-size: 7rem;
+  font-size: 5rem;
 }
 
 input {
-  font-size: 100%;
+  font-size: 70%;
 }
 .checkout h2 {
   text-align: center;
   background-color:lavender;
-  padding: 3rem ;
+  padding: 2rem ;
+  margin-bottom: 4rem;
 }
 
 .checkout h3 {
@@ -280,7 +281,10 @@ input[type=text] {
 label {
   margin-bottom: 10px;
   display: block;
+  font-size: 3.5rem;
 }
+
+
 
 .icon-container {
   margin-bottom: 20px;
@@ -292,12 +296,12 @@ label {
   background-color: #04AA6D;
   color: white;
   padding: 12px;
-  margin: 10px 0;
+  margin: 0.1rem 0;
   border: none;
   width: 100%;
   border-radius: 3px;
   cursor: pointer;
-  font-size: 70px;
+  font-size: 6rem;
 }
 
 hr {

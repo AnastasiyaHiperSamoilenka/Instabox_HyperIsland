@@ -310,7 +310,8 @@ span.price {
 }
 
 .item_total {
-  font-weight: 600;
+  font-size: 5rem;
+  font-weight: 500;
   padding: 1rem;
 }
 
